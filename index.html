@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BaseDatos</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="./intro.css">
+    <!-- Incluye Popper.js y Bootstrap JS -->
+    <script src="https://unpkg.com/@popperjs/core@2.10.2/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <nav class="navbar" style="background-color: whitesmoke
+    ;">
+        <!-- Navbar content -->
+        <div class="container-fluid">
+            <a class="navbar-brand">Matemáticas</a>
+            <a class="navbar-brand">Inglés</a>
+            <a class="navbar-brand">Programación</a>
+            <a class="navbar-brand">Logística</a>
+            <form class="d-flex" role="search">
+                <input class="form-control me-2" type="search" placeholder="Busca Nombre y Apellido del Alumno" aria-label="Search" style="width: 450px;">
+                <button class="btn btn-secondary" type="submit">Buscar</button>
+            </form>
+        </div>
+    </nav>   
+    <br><br>
+    <h1 style="text-align: center;">Base de Datos de Alumnos</h1>
+    <br><br>
+    <div class="toast" role="alert" aria-live="assertive" aria-atomic="true">
+        <div class="toast-body">
+        Hello, world! This is a toast message.
+        <div class="mt-2 pt-2 border-top">
+            <button type="button" class="btn btn-primary btn-sm">Take action</button>
+            <button type="button" class="btn btn-secondary btn-sm" data-bs-dismiss="toast">Close</button>
+        </div>
+        </div>
+    </div>
+    <section>
+        <div class="container-md">
+            <div class="row fulAlto border">
+                <div class="col-3 border-end  menuLateral">
+                    <button onclick="mostrarDatosAlumnos('Baseparte1')" type="button" class="btn btn-outline-success"  style="width: 250px;">Alumnos</button>
+                    <br>
+                    <button onclick="mostrarDatosCursos('Baseparte2')" type="button" class="btn btn-outline-success"  style="width: 250px;">Cursos</button>
+                    <br>
+                    <button class="btn btn-outline-success" onclick="mostrarFormulario()" type="button" style="width: 250px;" >Agregar Alumno</button>
+                    <br>
+                    <button onclick="revisarGrupos()" type="button" class="btn btn-outline-success" style="width: 250px;" >Revisar Grupos</button>
+                    <br>
+                    <button onclick="listaDeAlumnos()" type="button" class="btn btn-outline-success" style="width: 250px;">Lista Alumnos</button>
+                </div>
+                <div class="col-9">
+                    <div id="Baseparte1" style="display: none;">
+                        <table class="table">
+                            <thead> 
+                                <tr>
+                                    <th scope="col">Nombre</th>
+                                    <th scope="col">Apellidos</th>
+                                    <th scope="col">Edad</th>
+                                </tr>
+                            </thead>
+                            <tbody class="table-group-divider">
+                            </tbody>
+                        </table>
+                    </div>
+                    <div id="Baseparte2" style="display: none;">
+                        <table class="table">
+                            <thead> 
+                                <tr>
+                                    <th scope="col">Alumno</th>
+                                    <th scope="col">Materias Inscritas</th>
+                                    <th scope="col">Calificaciones</th>
+                                </tr>
+                            </thead>
+                            <tbody class="table-group-divider">
+                            </tbody>
+                        </table>
+                    </div>
+                    <div id="form" style="display: none;">
+                        <form id="kiki" class="row g-3" style="margin: 25px;">
+                            <h3 id="formCurso">Formulario de Alumnos</h3>
+                            <sub>Llena los campos del siguiente formulario para obtener los datos de un nuevo alumnos</sub>
+                            <br>
+                            <div class="col-md-4">
+                                <label for="inputNombre" class="form-label">Nombre</label>
+                                <input type="text" class="form-control" id="inputNombre">
+                            </div>
+
+
+                            <div class="col-md-4">
+                                <label for="inputApellido" class="form-label">Apellido</label>
+                                <input type="text" class="form-control" id="inputApellido">
+                            </div>
+                            <div class="col-2">
+                                <label for="inputEdad" class="form-label">Edad</label>
+                                <input type="number" class="form-control" id="inputEdad">
+                            </div>
+                            <div class="col-md-4">
+                                <label for="inputCurso" class="form-label">Cursos</label>
+                                <input type="text" class="form-control" id="inputCurso">
+                            </div> 
+                        </select>
+                            <div class="col-md-2">      
+                                <label for="inputCalificacion1" class="form-label">Calificación 1</label>
+                                <select id="inputCalificacion1" class="form-select">                             
+                                    <option value="1.0">1.0</option>
+                                    <option value="1.5">1.5</option>
+                                    <option value="2.0">2.0</option>
+                                    <option value="2.5">2.5</option>
+                                    <option value="3.0">3.0</option>
+                                    <option value="3.5">3.5</option>
+                                    <option value="4.0">4.0</option>
+                                    <option value="4.5">4.5</option>
+                                    <option value="5.0">5.0</option>
+                                    <option value="5.5">5.5</option>
+                                    <option value="6.0">6.0</option>
+                                    <option value="6.5">6.5</option>
+                                    <option value="7.0">7.0</option>
+                                </select>
+                            </div>
+                            <div class="col-md-2">      
+                                <label for="inputCalificacion2" class="form-label">Calificación 2</label>
+                                <select id="inputCalificacion2" class="form-select">
+                                    <option value="1.0">1.0</option>
+                                    <option value="1.5">1.5</option>
+                                    <option value="2.0">2.0</option>
+                                    <option value="2.5">2.5</option>
+                                    <option value="3.0">3.0</option>
+                                    <option value="3.5">3.5</option>
+                                    <option value="4.0">4.0</option>
+                                    <option value="4.5">4.5</option>
+                                    <option value="5.0">5.0</option>
+                                    <option value="5.5">5.5</option>
+                                    <option value="6.0">6.0</option>
+                                    <option value="6.5">6.5</option>
+                                    <option value="7.0">7.0</option>
+                                </select>
+                            </div>
+                            <div class="col-md-2">      
+                                <label for="inputCalificacion3" class="form-label">Calificación 3</label>
+                                <select id="inputCalificacion3" class="form-select">
+                                    <option value="1.0">1.0</option>
+                                    <option value="1.5">1.5</option>
+                                    <option value="2.0">2.0</option>
+                                    <option value="2.5">2.5</option>
+                                    <option value="3.0">3.0</option>
+                                    <option value="3.5">3.5</option>
+                                    <option value="4.0">4.0</option>
+                                    <option value="4.5">4.5</option>
+                                    <option value="5.0">5.0</option>
+                                    <option value="5.5">5.5</option>
+                                    <option value="6.0">6.0</option>
+                                    <option value="6.5">6.5</option>
+                                    <option value="7.0">7.0</option>
+                                </select>
+                            </div class="mt-5">
+                                <hr>
+                            <div>
+                                <div class="d-grid gap-2 d-md-flex">
+                                <pre class="form-check-label">Al hacer click en el botón se promediaran las notas del Alumno.</pre>
+                                    <button class="btn btn-primary btn-block mb-4 justify-content-md-end" type="button" onclick="calcularPromedio()">Promediar Nota</button><br>
+                                    <div id="resultadoPromedio"></div>
+                                </div>
+                                <hr>
+                            </div>
+                            <div class="col-12">
+                                <button type="button" class="btn btn-secondary" onclick="enviarFormulario()">Enviar</button>
+                            </div>
+                        </form>
+                    </div>
+                    <div id="contenedorGrupos" class="col-11 d-none">
+                        <div class="tituloGrupos">
+                            <h4 class="pb-2 mb-6 text-danger border-bottom border-danger text-center">
+                                Cursos de Base de Datos de Alumnos
+                            </h4>
+                        </div>
+                        <div class="d-flex justify-content-between align-items-center mb-3">                                                   
+                        </div>
+                            <div id="listaGrupos" >
+                            
+                        </div>
+                    </div>                 
+                </div>
+            </div>
+        </div>
+    </section>
+    <script src="./index.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js"></script>
+</body>
+</html>
+
+
